@@ -1,0 +1,5 @@
+-Iproto
+-Ithird_party
+--go_out=plugins=grpc:pkg/server
+--go_opt=paths=source_relative
+proto/service.proto

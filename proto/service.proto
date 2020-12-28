@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package mobPay;
+option go_package = "pkg/server";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service PayService{
+  rpc GetAll(google.protobuf.Empty) returns (AllResponse);
+  rpc Create(CreateRequest) returns(google.protobuf.Empty);
+  rpc GetById(GetRequest) returns(AutoPay);
+  rpc UpdateById(UpdateRequest) returns(Response);
+  rpc DeleteById(DeleteRequest) returns(Response);
+}
+
+message GetRequest{
+  int64 paymentId=1;
+}
+
+message AllResponse{
+  repeated AutoPay items = 2;
+}
+
+message CreateRequest{
+  string name=1;
+  string number=2;
+}
+
+message Response{
+  int64 affected = 1;
+}
+
+message UpdateRequest{
+  int64 paymentId=1;
+  string name=2;
+  string number=3;
+}
+
+message DeleteRequest{
+  int64 paymentId=1;
+}
+
+message AutoPay{
+  int64 paymentId=1;
+  string name=2;
+  string number=3;
+  google.protobuf.Timestamp timeCreated=4;
+  google.protobuf.Timestamp timeUpdated=5;
+}

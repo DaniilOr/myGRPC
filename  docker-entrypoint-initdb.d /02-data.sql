@@ -1,0 +1,1 @@
+INSERT INTO auto_payments VALUES (1, 'Andrew', '+7800553535')
