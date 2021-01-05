@@ -25,7 +25,7 @@ func main() {
 		host = defaultHost
 	}
 
-	dsn, ok := os.LookupEnv("APP_HOST")
+	dsn, ok := os.LookupEnv("APP_DSN")
 	if !ok {
 		dsn = defaultDSN
 	}
